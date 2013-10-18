@@ -45,18 +45,18 @@ bool test_winner() {
 
 bool test_moves() {
 	#include "test_moves.defs"
-	ok(make_move(board1, X, 0));
-	ok(make_move(board1, O, 4));
-	ok(make_move(board1, X, 1));
-	ok(make_move(board1, O, 2));
-	ok(make_move(board1, X, 6));
-	ok(make_move(board1, O, 3));
-	ok(make_move(board1, X, 5));
-	ok(make_move(board1, O, 8));
-	ok(make_move(board1, X, 7));
+	ok_eq(make_move(board1, X, 0), 0);
+	ok_eq(make_move(board1, O, 4), 0);
+	ok_eq(make_move(board1, X, 1), 0);
+	ok_eq(make_move(board1, O, 2), 0);
+	ok_eq(make_move(board1, X, 6), 0);
+	ok_eq(make_move(board1, O, 3), 0);
+	ok_eq(make_move(board1, X, 5), 0);
+	ok_eq(make_move(board1, O, 8), 0);
+	ok_eq(make_move(board1, X, 7), 0);
 	ok_eq(winner(board1), EMPTY);
 
-	ok(!make_move(board2, X, 4));
+	ok_eq(make_move(board2, X, 4), 1);
 
 	return true;
 }
