@@ -29,7 +29,7 @@
 
 bool test_winner() {
     #include "test_winner.defs"
-    ok_eq(winner(empty_field), EMPTY);
+    ok_eq(winner(empty_board), EMPTY);
     ok_eq(winner(x_row_1), X);
     ok_eq(winner(o_row_2), O);
     ok_eq(winner(x_row_3), X);
@@ -38,6 +38,7 @@ bool test_winner() {
     ok_eq(winner(o_col_3), O);
     ok_eq(winner(x_diag_1), X);
     ok_eq(winner(o_diag_2), O);
+
     return true;
 }
 

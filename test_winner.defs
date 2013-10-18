@@ -1,4 +1,4 @@
-static board_t empty_field = {
+static board_t empty_board = {
     0, 0, 0,
     0, 0, 0,
     0, 0, 0
