@@ -1,10 +1,11 @@
+// vim: noexpandtab
 #ifndef _TICTACTOE_H
 #define _TICTACTOE_H
 
 typedef enum {
-    EMPTY = 0,
-    X = 1,
-    O = -1
+	EMPTY = 0,
+	X = 1,
+	O = -1
 } player_t;
 
 typedef player_t board_t[9];

@@ -1,11 +1,12 @@
+// vim: noexpandtab
 static board_t board1 = {
-    0, 0, 0,
-    0, 0, 0,
-    0, 0, 0
+	0, 0, 0,
+	0, 0, 0,
+	0, 0, 0
 };
 
 static board_t board2 = {
-    0, 0, 0,
-    0, X, 0,
-    0, 0, 0
+	0, 0, 0,
+	0, X, 0,
+	0, 0, 0
 };
