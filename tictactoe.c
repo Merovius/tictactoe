@@ -4,8 +4,6 @@
 #include "tictactoe.h"
 
 player_t winner(const board_t board) {
-	player_t a, b;
-
 #define _eq_3(a,b,c) ((board[(a)] == board[(b)]) && (board[(b)] == board[(c)]) && (board[(a)] != EMPTY))
 
 	for (int i = 0; i < 3; i++) {

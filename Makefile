@@ -1,4 +1,5 @@
 TTT_CFLAGS += -std=c11
+TTT_CFLAGS += -Wall
 
 all: tictactoe
 
