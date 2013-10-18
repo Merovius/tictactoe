@@ -1,0 +1,12 @@
+// vim: noexpandtab: ft=c
+static board_t trivial_board = {
+	X, 0, O,
+	0, 0, 0,
+	O, 0, X
+};
+
+static board_t fork_board = {
+	X, O, 0,
+	0, X, 0,
+	0, 0, O
+};

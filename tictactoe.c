@@ -41,3 +41,46 @@ int make_move(board_t board, player_t player, int move) {
 	board[move] = player;
 	return 0;
 }
+
+static int best_move_impl(board_t board, player_t player, int *rating) {
+	int best;
+	if (player == X) {
+		best = INT_MIN;
+	} else {
+		best = INT_MAX;
+	}
+
+	int best_move = -1;
+
+	for (int i = 0; i < 9; i++) {
+		if (board[i] == EMPTY) {
+			board[i] = player;
+			*rating = winner(board);
+			if (*rating == EMPTY) {
+				best_move_impl(board, -1 * player, rating);
+			}
+			if ((player == X && *rating > best) || (player == O && *rating < best)) {
+				best = *rating;
+				best_move = i;
+			}
+			board[i] = EMPTY;
+		}
+	}
+
+	if (best != INT_MIN && best != INT_MAX) {
+		*rating = best;
+		return best_move;
+	}
+
+	*rating = score_board(board);
+	return -1;
+}
+
+int best_move(const board_t board, player_t player) {
+	board_t scratch_board;
+	for (int i = 0; i < 9; i++) {
+		scratch_board[i] = player * board[i];
+	}
+	int rating;
+	return best_move_impl(scratch_board, X, &rating);
+}

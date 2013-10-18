@@ -23,7 +23,7 @@
 
 #define ok_eq(a, b) do { \
 	if (a != b) { \
-		printf("\033[31mExpected: %d Got: %d\033[m\n", a, b); \
+		printf("\033[31mExpected: %s == %d, Got: %d\033[m\n", #a, b, a); \
 		return false; \
 	} \
 } while (0)
@@ -61,11 +61,23 @@ bool test_moves() {
 	return true;
 }
 
+bool test_win() {
+	#include "test_win.defs"
+	ok_eq(best_move(trivial_board, X), 4);
+	ok_eq(best_move(trivial_board, O), 4);
+
+	ok_eq(best_move(fork_board, X), 3);
+
+	return true;
+}
+
 int main(int argc, char **argv) {
 	int num_tests = 0;
 	int num_failed = 0;
 
 	run_test(winner);
+	run_test(moves);
+	run_test(win);
 
 	if (num_failed > 0) {
 		printf("\033[1;31m%d of %d tests failed\033[m\n", num_failed, num_tests);
