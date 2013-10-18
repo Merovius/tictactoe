@@ -3,7 +3,7 @@
 #include <limits.h>
 #include "tictactoe.h"
 
-player_t winner(board_t board) {
+player_t winner(const board_t board) {
 	player_t a, b;
 
 #define _eq_3(a,b,c) ((board[(a)] == board[(b)]) && (board[(b)] == board[(c)]) && (board[(a)] != EMPTY))
@@ -83,4 +83,13 @@ int best_move(const board_t board, player_t player) {
 	}
 	int rating;
 	return best_move_impl(scratch_board, X, &rating);
+}
+
+bool isdraw(const board_t board) {
+	bool full = true;
+	for (int i = 0; i < 9; i++) {
+		full &= (board[i] != EMPTY);
+	}
+
+	return full && (winner(board) == EMPTY);
 }

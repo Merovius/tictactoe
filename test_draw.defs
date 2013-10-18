@@ -1,0 +1,18 @@
+// vim:noexpandtab:ft=c
+static board_t not_full_board = {
+	X, 0, O,
+	0, 0, 0,
+	O, 0, X
+};
+
+static board_t full_but_won_board = {
+	X, O, O,
+	X, X, X,
+	X, O, O
+};
+
+static board_t draw_board = {
+	X, O, X,
+	X, O, X,
+	O, X, O
+};

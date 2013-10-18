@@ -15,7 +15,7 @@
 } while (0)
 
 #define ok(b) do { \
-	if (b) { \
+	if (!b) { \
 		printf("\033[31mExpected: %s\033[m\n", #b); \
 		return false; \
 	} \
@@ -71,6 +71,16 @@ bool test_win() {
 	return true;
 }
 
+bool test_draw() {
+	#include "test_draw.defs"
+
+	ok(!isdraw(not_full_board));
+	ok(!isdraw(full_but_won_board));
+	ok(isdraw(draw_board));
+
+	return true;
+}
+
 int main(int argc, char **argv) {
 	int num_tests = 0;
 	int num_failed = 0;
@@ -78,6 +88,7 @@ int main(int argc, char **argv) {
 	run_test(winner);
 	run_test(moves);
 	run_test(win);
+	run_test(draw);
 
 	if (num_failed > 0) {
 		printf("\033[1;31m%d of %d tests failed\033[m\n", num_failed, num_tests);
