@@ -10,5 +10,6 @@ typedef enum {
 typedef player_t board_t[9];
 
 player_t winner(board_t field);
+int make_move(board_t board, player_t player, int move);
 
 #endif /* _TICTACTOE_H */

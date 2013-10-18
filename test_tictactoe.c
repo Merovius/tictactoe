@@ -14,7 +14,7 @@
 } while (0)
 
 #define ok(b) do { \
-    if (!b) { \
+    if (b) { \
         printf("\033[31mExpected: %s\033[m\n", #b); \
         return false; \
     } \
@@ -38,6 +38,24 @@ bool test_winner() {
     ok_eq(winner(o_col_3), O);
     ok_eq(winner(x_diag_1), X);
     ok_eq(winner(o_diag_2), O);
+    return true;
+}
+
+bool test_moves() {
+    #include "test_moves.defs"
+    ok(make_move(board1, X, 0));
+    ok(make_move(board1, O, 4));
+    ok(make_move(board1, X, 1));
+    ok(make_move(board1, O, 2));
+    ok(make_move(board1, X, 6));
+    ok(make_move(board1, O, 3));
+    ok(make_move(board1, X, 5));
+    ok(make_move(board1, O, 8));
+    ok(make_move(board1, X, 7));
+    ok_eq(winner(board1), EMPTY);
+
+    ok(!make_move(board2, X, 4));
+
     return true;
 }
 

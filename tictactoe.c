@@ -31,3 +31,11 @@ player_t winner(board_t board) {
 int score_board(board_t board) {
     return winner(board);
 }
+
+int make_move(board_t board, player_t player, int move) {
+    if (board[move] != EMPTY) {
+        return 1;
+    }
+    board[move] = player;
+    return 0;
+}
